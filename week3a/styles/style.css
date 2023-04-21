@@ -17,7 +17,7 @@ header{
 
 .main{
     grid-area: main_content;
-    grid-template-areas: "content" "main_map";
+    grid-template-areas: "content" "main map";
     display: grid;
 }
 
@@ -26,9 +26,9 @@ header{
 }
 
 #the_map{
-    /* position: relative; */
-    /* bottom:4 ; */
-    height:80vh; 
+    position: relative;
+    bottom:4 
+    height:60vh; 
     grid-area: main_map;
     background-color: rgb(51, 90, 44);;
 }

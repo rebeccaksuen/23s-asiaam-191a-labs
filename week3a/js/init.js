@@ -21,11 +21,24 @@ let marker = L.marker([1.352083, 103.819839]).addTo(map)
 
         function addMarker(lat,lng,message){ 
             console.log(message) 
-            L.marker([lat,lng]).addTo(map).bindPopup(message) 
+            L.marker([lat,lng]).addTo(map).bindPopup(message)
+            createButtons(lat,lng,title);  
             return message 
         }
 addMarker(34.414668,-118.556890,'Santa Clarita','My hometown!')
 addMarker(11.584790,122.753212,'Roxas City, Philippines',"My Mom's hometown")
 addMarker(34.068920,-118.445183,'UCLA','School')
 addMarker(37.453220,-122.183220,'Menlo Park',"My Dad's hometown")
-                
+
+function createButtons(lat,lng,title){
+    const newButton = document.createElement("button"); 
+    newButton.id = "button"+title; 
+    newButton.innerHTML = title; 
+    newButton.setAttribute("lat",lat); 
+    newButton.setAttribute("lng",lng); 
+    newButton.addEventListener('click', function(){
+        map.flyTo([lat,lng]); 
+    })
+    document.getElementById("contents").appendChild(newButton); 
+}
+               
