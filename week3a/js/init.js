@@ -1,34 +1,22 @@
-// var mario = 3;
-//         var age = 12;
-//         var combined= mario + age
-//         console.log(combined)
-//         console.log('Hello Asian Am 191 from linked JavaScript! :)')
+// declare the map
+const map = L.map('the_map').setView([35,-119], 9);
 
-console.log("Hello Asia-Am 191A! :)")
-
-// JavaScript const variable declaration
-const map = L.map('the_map').setView([1.352083, 103.819839], 15); 
-
-// Leaflet tile layer, i.e. the base map
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map); 
+}).addTo(map);
 
-//JavaScript let variable declaration to create a marker
-let marker = L.marker([1.352083, 103.819839]).addTo(map) 
-        .bindPopup('Singapore: Where I studied abroad last summer!')
-        .openPopup();
+addMarker(33.5427, -117.7854,'Laguna Beach','Nice hiking trails and views')
+addMarker(34.0356, -118.5359,'Will Rogers State Beach','Close to UCLA!')
+addMarker(34.0259, -118.7798,'Malibu Beach','Secluded and quiet :)')
+addMarker(32.6848, -117.1878,'Coronado Beach','Next to a historic hotel!')
+addMarker(35.579912, -121.1168, 'Moonstone Beach','Where you can find moonstones and seaglass on the shore')
 
-        function addMarker(lat,lng,message){ 
-            console.log(message) 
-            L.marker([lat,lng]).addTo(map).bindPopup(message)
-            createButtons(lat,lng,title);  
-            return message 
-        }
-addMarker(34.414668,-118.556890,'Santa Clarita','My hometown!')
-addMarker(11.584790,122.753212,'Roxas City, Philippines',"My Mom's hometown")
-addMarker(34.068920,-118.445183,'UCLA','School')
-addMarker(37.453220,-122.183220,'Menlo Park',"My Dad's hometown")
+// create a function to add markers
+function addMarker(lat,lng,title,message){
+    console.log(message)
+    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>${message}</h3>`)
+    return message
+}
 
 function createButtons(lat,lng,title){
     const newButton = document.createElement("button"); 
@@ -39,6 +27,10 @@ function createButtons(lat,lng,title){
     newButton.addEventListener('click', function(){
         map.flyTo([lat,lng]); 
     })
-    document.getElementById("contents").appendChild(newButton); 
+    document.getElementById("contents").appendChild(newButton);
 }
-               
+createButtons(33.5427, -117.7854,'Laguna Beach')
+createButtons(34.0356, -118.5359,'Will Rogers State Beach')
+createButtons(34.0259, -118.7798,'Malibu Beach')
+createButtons(32.6848, -117.1878,'Coronado Beach')
+createButtons(35.579912, -121.1168, 'Moonstone Beach')
