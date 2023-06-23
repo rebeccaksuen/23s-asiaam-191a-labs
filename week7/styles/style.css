@@ -2,7 +2,7 @@ body{
     display: grid;
     grid-template-rows: 50px auto auto;
     grid-template-areas: "header" "main_content" "footer";
-    background-color: rgb(146, 224, 255);
+    background-color: rgb(164, 238, 255);
     gap: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -13,8 +13,8 @@ header{
     align-self: center;
     margin: 0;
     padding: 20px 0;
-    color: hwb(270 9% 31%);
-    text-shadow: 2px 2px 1px rgb(29, 17, 40);
+    color: #5e25ae;
+    text-shadow: 2px 2px 1px rgb(45, 25, 72);
 }
 
 #footer{
@@ -33,7 +33,7 @@ header{
 #contents{
     grid-area: content;
     display: grid;
-    grid-template-rows: 1fr 3fr; 
+    grid-template-rows: 3fr 1fr; 
     grid-template-areas: "buttonHome" "survey"
 }
 
@@ -47,6 +47,21 @@ header{
 #theSurvey{
     grid-area: survey;
     margin-top: 20px;
+    justify-self: center; /* added this to center the button in the div */
+}
+
+/* css for the button */
+#surveyButton{
+    padding: 15px 32px;
+    margin: 10px;
+    background-color: #b4a0dd;
+    cursor: pointer;
+}
+
+/* css for button to get rid of the underline */
+#surveyButton a{
+    text-decoration: none; 
+    gap:10px
 }
 
 #placeForButtons{
